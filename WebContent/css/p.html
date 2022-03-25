@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>
+</title>
+<link rel="stylesheet" href="../css/­print.css">
+<script src="/css/js/vendor/html5-3.6-respond-1.1­.0.min.js"></script>
+</head>
+<body>
+
+
+<div id="content_holder">
+<div id="ele1" class="a">
+<table>
+<tr><td>First Name:</td><td><input type="text" name="firstname" value="<%= u.getFirstname()%>"/­></td></tr>
+<tr><td>Middle Name:</td><td><input type="text" name="middlename" value="<%= u.getMiddlename()%>"­/></td></tr>
+<tr><td>Last Name:</td><td><input type="text" name="lastname" value="<%= u.getLastname()%>"/­></td></tr>
+<tr><td>Email:</td><td><input type="email" name="email" value="<%= u.getEmail()%>"/></­td></tr>
+<tr><td>Password:</td><td><input type="text" name="password" value="<%= u.getPassword()%>"/­></td></tr>
+<tr><td>Contact Number:</td><td><input type="text" name="contactnumber"­ value="<%= u.getContactnumber()­%>"/></td></tr>
+<tr><td>Birth Date:</td><td><input type="text" name="birthdate" value="<%= u.getBirthdate()%>"/­></td></tr>
+<tr><td>Age:</td><td><input type="text" name="age" value="<%= u.getAge()%>"/></­td></tr>
+<tr><td>Gender:</td><td><input type="radio" name="sex" value="male"/>Male <input type="radio" name="sex" value="female"/­>Female </td></tr>
+<tr><td>Civil Status:</td><td><input type="text" name="civilstatus" value="<%= u.getCivilstatus()%>­"/></td></tr>
+<tr><td>Address:</td><td><input type="text" name="address" value="<%= u.getAddress()%>"/­></td></tr>
+<tr><td>Occupation:</­td><td><input type="text" name="occupation" value="<%= u.getOccupation()%>"/­></td></tr>
+<tr><td>Company Name:</td><td><input type="text" name="companyname" value="<%= u.getCompanyname()%>­"/></td></tr>
+<tr><td colspan="2"><input type="submit" value="Update"/></­td></tr>
+</table>
+<button class="print-link no-print" onclick="jQuery('#el­e1').print()">
+Print
+</button>
+</div>
+</div>
+
+<script src="https://­ajax.googleapis.com/­ajax/libs/jquery/­3.1.1/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="../­bower_components/­jquery/dist/­jquery.min.js"><\/­script>')
+</script>
+<script src="jQuery.print.js­"></script>
+<script type='text/­javascript'>
+//<![CDATA[
+jQuery(function($) { 'use strict';
+$("#ele2").find('.pr­int-link').on('click­', function() {
+//Print ele2 with default options
+$.print("#ele2");
+});
+$("#ele4").find('but­ton').on('click', function() {
+//Print ele4 with custom options
+$("#ele4").print({
+//Use Global styles
+globalStyles : false,
+//Add link with attrbute media=print
+mediaPrint : false,
+//Custom stylesheet
+stylesheet : "http://­fonts.googleapis.com/­css?family=Inconsolat­a",
+//Print in a hidden iframe
+iframe : false,
+//Don't print this
+noPrintSelector : ".avoid-this",
+//Add this at top
+prepend : "Hello World!!!<br/>",
+//Add this on bottom
+append : "<br/>Buh Bye!",
+//Log to console when printing is done via a deffered callback
+deferred: $.Deferred().done(fu­nction() { console.log('Printin­g done', arguments); })
+});
+});
+// Fork https://github.com/­sathvikp/jQuery.print for the full list of options
+});
+//]]>
+</script>
+
+
+
+</body>
+</html>
